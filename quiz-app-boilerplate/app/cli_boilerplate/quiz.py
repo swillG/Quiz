@@ -16,6 +16,7 @@ def ask_question(q):
     question = input("enter your answer: ")
     if question.upper() == q["answer"]:
         print(f"you are correct. The answer is {q["answer"]}")
+        return True
     else:
         print(f"you are wrong. The answer is {q["answer"]}")
 
@@ -33,8 +34,12 @@ def run_quiz():
     - Call ask_question for each
     - Print final score
     """
+    score = 0
     for question in QUESTIONS:
-        ask_question(question)
+        if ask_question(question):
+            score += 1
+
+    print(f"your score is {score}")
 
 
 run_quiz()
